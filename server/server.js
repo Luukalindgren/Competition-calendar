@@ -13,7 +13,7 @@ db.once("open", () => console.log("Connected to database"));
 
 app.use(express.json());
 
-app.get("/competitionshttp://localhost:3000/competitions", async (req, res) => {
+app.get("/competitions", async (req, res) => {
   const competitions = await Competition.find();
   res.json(competitions);
 });
