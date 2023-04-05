@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LLLogo from "/LL.png";
 import competitionsJson from "/src/data.json";
 
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [competitions, setCompetitions] = useState([{}]);
 
-  const competitions = competitionsJson.kisat;
+  useEffect(() => {
+    fetch("/api")
+      .then((response) => response.json())
+      .then((data) => {
+        setCompetitions(data);
+      });
+  }, []);
 
   return (
     <div className="App">
