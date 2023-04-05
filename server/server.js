@@ -3,6 +3,15 @@ const app = express();
 const mongoose = require("mongoose");
 const Competition = require("./models/competition");
 
+// TODO:
+// - Add scraper and things that are needed for it
+// - Make the scraper update API/DB on Reacts useEffect, that way it updates automatically
+// - Change React to use API/DB instead of static data "http://localhost:3000/competitions"
+// - Hide MongoDB connection string to .env file
+// - Add the functionalities in README.md
+
+
+
 mongoose.connect(
   "mongodb+srv://luslin:iFLvPfSCRtB7NJd7@testi.wnkxl99.mongodb.net/Kisakalenteri?retryWrites=true&w=majority",
   { useNewUrlParser: true }
