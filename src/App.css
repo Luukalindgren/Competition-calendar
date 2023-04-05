@@ -1,3 +1,27 @@
+body {
+  background-color: #8080807a;
+}
+
+a {
+  padding: 0 0.5rem;
+}
+
+a:link {
+  color: #000;
+}
+
+a:visited {
+  color: #000;
+}
+
+a:hover {
+  color: #d3d3d3;
+}
+
+a:active {
+  color: #d3d3d3;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -13,7 +37,7 @@
 .Header h1 {
   font-size: 3rem;
   color: #fff;
-  text-shadow: 0 0 2rem #000;
+  text-shadow: 0 0 1rem #000;
 }
 
 .logo {
@@ -23,15 +47,12 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #434344aa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #2c2c2caa);
 }
 
 .Main {
   padding: 2rem;
-  background-color: #afafaf7a;
+  background-color: #e6e6e6;
 }
 
 ul {
@@ -45,17 +66,13 @@ li {
   margin: 0.5rem;
 }
 
+.Footer {
+  padding: 2rem;
+  background-color: #3535357a;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.Footer {
-  padding: 2rem;
-  background-color: #3535357a;
 }

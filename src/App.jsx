@@ -12,18 +12,23 @@ function App() {
   return (
     <div className="App">
       <div className="Header">
-        <img src={LLLogo} className="logo" alt="logo" />
+        <a href="https://github.com/Luukalindgren">
+          <img src={LLLogo} className="logo" alt="logo" />
+        </a>
         <h1>Kisakalenteri</h1>
       </div>
       <div className="Main">
-        <p>Tähän tulee näkyviin fribakisat</p>
+        <h4>Kisoja tänään: {competitions.length} </h4>
         <ul className="Main-list">
           {competitions.map((competition) => (
-            <li key={competition.id} className="Main-list-item">
+            <li key={competition.ID} className="Main-list-item">
               <h2>{competition.nimi}</h2>
               <p>{competition.paikka}</p>
               <b>{competition.aika}</b>
               <p>{competition.alue}</p>
+              <a href="">Weather forecast</a>
+              <a href="">Course map</a>
+              <a href="">Driving instructions</a>
             </li>
           ))}
         </ul>
