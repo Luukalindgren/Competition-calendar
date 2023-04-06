@@ -3,18 +3,18 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Competition = require("./models/competition");
+require("dotenv").config();
 
 // TODO:
-// - Add scraper and things that are needed for it
+// DONE Add scraper and things that are needed for it
 // - Make the scraper update API/DB on Reacts useEffect, that way it updates automatically
-// - Change React to use API/DB instead of static data "http://localhost:3000/competitions"
-// - Hide MongoDB connection string to .env file
+// DONE Change React to use API/DB instead of static data "http://localhost:3000/competitions"
+// DONE Hide MongoDB connection string to .env file
 // - Add the functionalities in README.md
 
-mongoose.connect(
-  "mongodb+srv://luslin:iFLvPfSCRtB7NJd7@testi.wnkxl99.mongodb.net/Kisakalenteri?retryWrites=true&w=majority",
-  { useNewUrlParser: true }
-);
+const URL = process.env.DATABASE_URL;
+
+mongoose.connect(URL, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to database"));
