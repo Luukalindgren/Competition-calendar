@@ -3,23 +3,25 @@ import LLLogo from "/LL.png";
 //import competitionsJson from "/src/data.json";
 import "./App.css";
 
-
 // TODO:
 // - Add scraper and things that are needed for it
 // - Make the scraper update API/DB on Reacts useEffect, that way it updates automatically
-// - Change React to use API/DB instead of static data "http://localhost:3000/competitions"
+// DONE Change React to use API/DB instead of static data "http://localhost:3000/competitions"
 // - Hide MongoDB connection string to .env file
 // - Add the functionalities in README.md
-
 
 function App() {
   const [competitions, setCompetitions] = useState([{}]);
 
   useEffect(() => {
-    fetch("/competitions")
+    fetch("http://localhost:3000/competitions")
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setCompetitions(data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 
@@ -35,11 +37,11 @@ function App() {
         <h4>Kisoja tänään: {competitions.length} </h4>
         <ul className="Main-list">
           {competitions.map((competition) => (
-            <li key={competition.ID} className="Main-list-item">
-              <h2>{competition.nimi}</h2>
-              <p>{competition.paikka}</p>
-              <b>{competition.aika}</b>
-              <p>{competition.alue}</p>
+            <li key={competition.id} className="Main-list-item">
+              <h2>{competition.name}</h2>
+              <p>{competition.location}</p>
+              <b>{competition.time}</b>
+              <p>{competition.area}</p>
               <a href="">Weather forecast</a>
               <a href="">Course map</a>
               <a href="">Driving instructions</a>
