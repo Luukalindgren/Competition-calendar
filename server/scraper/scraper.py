@@ -12,10 +12,19 @@ from bs4 import BeautifulSoup
 # Load environment variables from .env file
 load_dotenv()
 
+# Connect to MongoDB
+client = MongoClient(os.getenv("DATABASE_URL"))
+db = client.Kisakalenteri
+coll = db.competitions
+# Drop the collection to avoid duplicates
+coll.drop()
+
+# Get the websites HTML
 date = str(datetime.date.today())
 URL = "https://discgolfmetrix.com/competitions_server.php?name=&date1=" + date + "&date2=" + date + "&country_code=FI&from=1&to=20&page=all" #&area=Varsinais-Suomi
 page = requests.get(URL)
 
+# Parse the HTML
 soup = BeautifulSoup(page.content, 'html.parser')       # Parse HTML
 competitions = soup.find_all(class_="column")           # Find all competitions, each competition is in a div with class "column"
 
@@ -34,16 +43,12 @@ for result in competitions:
     newCompetition["time"] = competitionTime.text.strip()
     newCompetition["location"] = competitionLocation.text.strip()
     newCompetition["area"] = competitionArea.text.strip()
-    competitionsJson["competitions"].append(newCompetition)
+    if coll.find_one({"id": competitionID}) == None:
+        competitionsJson["competitions"].append(newCompetition)
     
 
-# Connect to MongoDB
-client = MongoClient(os.getenv("DATABASE_URL"))
-db = client.Kisakalenteri
-coll = db.competitions
-coll.drop()                                             # Drop the collection to avoid duplicates
-
-result = coll.insert_many(competitionsJson["competitions"]) # Insert all competitions to the database
+# Insert all competitions to the database
+result = coll.insert_many(competitionsJson["competitions"])
 
 print(result.inserted_ids)
 print("Added " + str(len(result.inserted_ids)) + " competitions to the database.")

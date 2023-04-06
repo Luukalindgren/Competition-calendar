@@ -3,11 +3,12 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Competition = require("./models/competition");
+const cron = require("node-cron");
 require("dotenv").config();
 
 // TODO:
 // DONE Add scraper and things that are needed for it
-// - Make the scraper update API/DB on Reacts useEffect, that way it updates automatically
+// SORT OF DONE (update/1h) Make the scraper update API/DB on Reacts useEffect, that way it updates automatically
 // DONE Change React to use API/DB instead of static data "http://localhost:3000/competitions"
 // DONE Hide MongoDB connection string to .env file
 // - Add the functionalities in README.md
@@ -29,4 +30,20 @@ app.get("/competitions", async (req, res) => {
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
+});
+
+// Update the database every hour
+cron.schedule("*/30 * * * *", () => {
+  console.log("Running scraper every 30 min");
+  const { spawn } = require("child_process");
+  const pythonProcess = spawn("python", ["./scraper/scraper.py"]);
+  pythonProcess.stdout.on("data", (data) => {
+    console.log(data.toString());
+  });
+  pythonProcess.stderr.on("data", (data) => {
+    console.log(data.toString());
+  });
+  pythonProcess.on("close", (code) => {
+    console.log(`Python scraper process exited with code ${code}`);
+  });
 });

@@ -4,25 +4,23 @@ import LLLogo from "/LL.png";
 import "./App.css";
 
 // TODO:
-// - Add scraper and things that are needed for it
-// - Make the scraper update API/DB on Reacts useEffect, that way it updates automatically
+// DONE Add scraper and things that are needed for it
+// SORT OF DONE (update/1h) Make the scraper update API/DB on Reacts useEffect, that way it updates automatically
 // DONE Change React to use API/DB instead of static data "http://localhost:3000/competitions"
-// - Hide MongoDB connection string to .env file
+// DONE Hide MongoDB connection string to .env file
 // - Add the functionalities in README.md
 
 function App() {
   const [competitions, setCompetitions] = useState([{}]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/competitions")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setCompetitions(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const fetchCompetitions = async () => {
+      const response = await fetch("http://localhost:3000/competitions");
+      const data = await response.json();
+      console.log(data);
+      setCompetitions(data);
+      };
+      fetchCompetitions()
   }, []);
 
   return (
