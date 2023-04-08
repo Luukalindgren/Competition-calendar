@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Luukalindgren.github.io/Competition-calendar",
+  "homepage": "https://luukalindgren.github.io/Competition-calendar",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
