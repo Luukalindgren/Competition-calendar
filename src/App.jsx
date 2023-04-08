@@ -19,7 +19,9 @@ function App() {
 
   useEffect(() => {
     const fetchCompetitions = async () => {
-      const response = await fetch("http://localhost:3000/competitions");
+      const response = await fetch(
+        "https://competition-calendar-server.onrender.com/competitions"
+      );
       const data = await response.json();
       console.log(data);
       setCompetitions(data);
@@ -45,7 +47,7 @@ function App() {
               location={competition.location}
               time={competition.time}
               area={competition.area}
-              />
+            />
           ))}
         </ul>
       </div>
