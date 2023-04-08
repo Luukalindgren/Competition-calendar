@@ -1,3 +1,5 @@
+---------------------!WORK IN PROGRESS!---------------------
+
 Second version of disc golf competition calendar. First one was bit scuffed...
 
 Plan is to make easy to use website which helps to plan when to play rounds. Nobody wants to drive a hour to a course to be surprised that it is reserved for a competition.
