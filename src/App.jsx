@@ -5,11 +5,12 @@ import "./App.css";
 
 // TODO:
 // DONE Add scraper and things that are needed for it
-// SORT OF DONE (update/1h) Make the scraper update API/DB on Reacts useEffect, that way it updates automatically
+// SORT OF DONE (update/30m) Make the scraper update API/DB on Reacts useEffect, that way it updates automatically
 // DONE Change React to use API/DB instead of static data "http://localhost:3000/competitions"
 // DONE Hide MongoDB connection string to .env file
-// - Add the functionalities in README.md
-// - Publish app to GitHub Pages/Heroku or something
+// HALF DONE Add the functionalities in README.md
+// Done Publish frontend to GitHub Pages
+// - Publish backend to Heroku or AWS or something
 // - Add a area selector that shows the narrows down the competitions to the selected area
 //
 
