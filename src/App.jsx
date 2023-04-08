@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import LLLogo from "/LL.png";
-//import competitionsJson from "/src/data.json";
+import Competition from "./Competition";
 import "./App.css";
 
 // TODO:
@@ -9,6 +9,9 @@ import "./App.css";
 // DONE Change React to use API/DB instead of static data "http://localhost:3000/competitions"
 // DONE Hide MongoDB connection string to .env file
 // - Add the functionalities in README.md
+// - Publish app to GitHub Pages/Heroku or something
+// - Add a area selector that shows the narrows down the competitions to the selected area
+//
 
 function App() {
   const [competitions, setCompetitions] = useState([{}]);
@@ -19,8 +22,8 @@ function App() {
       const data = await response.json();
       console.log(data);
       setCompetitions(data);
-      };
-      fetchCompetitions()
+    };
+    fetchCompetitions();
   }, []);
 
   return (
@@ -35,15 +38,13 @@ function App() {
         <h4>Kisoja tänään: {competitions.length} </h4>
         <ul className="Main-list">
           {competitions.map((competition) => (
-            <li key={competition.id} className="Main-list-item">
-              <h2>{competition.name}</h2>
-              <p>{competition.location}</p>
-              <b>{competition.time}</b>
-              <p>{competition.area}</p>
-              <a href="">Weather forecast</a>
-              <a href="">Course map</a>
-              <a href="">Driving instructions</a>
-            </li>
+            <Competition
+              id={competition.id}
+              name={competition.name}
+              location={competition.location}
+              time={competition.time}
+              area={competition.area}
+              />
           ))}
         </ul>
       </div>

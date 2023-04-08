@@ -12,6 +12,9 @@ require("dotenv").config();
 // DONE Change React to use API/DB instead of static data "http://localhost:3000/competitions"
 // DONE Hide MongoDB connection string to .env file
 // - Add the functionalities in README.md
+// - Publish app to GitHub Pages/Heroku or something
+// - Add a area selector that shows the narrows down the competitions to the selected area
+// 
 
 const URL = process.env.DATABASE_URL;
 
