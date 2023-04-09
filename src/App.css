@@ -49,3 +49,19 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+
+@media (min-width: 768px) {
+  #root {
+    min-width: 768px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Main-list-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
