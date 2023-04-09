@@ -38,7 +38,7 @@ app.listen(3000, () => {
 });
 
 // Update the database every hour
-cron.schedule("*/30 * * * *", () => {
+cron.schedule("0 * * * *", () => {
   console.log("Running scraper every 30 min");
   const { spawn } = require("child_process");
   const pythonProcess = spawn("python", ["./scraper/scraper.py"]);
