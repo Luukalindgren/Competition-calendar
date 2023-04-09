@@ -52,7 +52,7 @@ function App() {
         <h1>Kisakalenteri</h1>
       </div>
       <div className="Main">
-        <h4>Kisoja tänään: {loading ? "" : competitions.length} </h4>
+        <h4>{loading ? "Ensimmäinen lataus voi kestää, koska render.com säästää resursseja laittamalla bäkkärin unitilaan..." : "Kisoja tänään: " + competitions.length} </h4>
         {loading ? <ReactBootStarp.Spinner animation="border" /> :
         <ul className="Main-list">
           {competitions.map((competition) => (
