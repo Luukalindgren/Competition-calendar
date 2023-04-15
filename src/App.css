@@ -10,6 +10,16 @@
   font-size: 1.5em;
   padding-bottom: 2rem;
 }
+.ant-menu {
+  justify-content: center;
+  background-color: #CCCCCC;
+  margin-bottom: -2.5rem;
+}
+
+.ant-menu li {
+  border: 0;
+}
+
 
 .Header h1 {
   font-size: 4rem;

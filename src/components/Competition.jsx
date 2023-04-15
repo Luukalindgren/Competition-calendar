@@ -6,7 +6,7 @@ export default function Competition(props) {
     (props.area == null ? "" : props.area.split(", ")[1]);
   const competitionSite = "https://discgolfmetrix.com/" + props.id;
   return (
-    <li key={props.id} className="Main-list-item">
+    <li className="Main-list-item">
       <h2>{props.name}</h2>
       <p>{props.location}</p>
       <b>{props.time}</b>
