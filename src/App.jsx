@@ -3,6 +3,7 @@ import * as ReactBootStarp from "react-bootstrap";
 
 import Competition from "./components/Competition";
 import Header from "./components/nav/Header";
+
 import "./App.css";
 
 // TODO:
@@ -17,7 +18,7 @@ import "./App.css";
 // - Add a area selector that shows the narrows down the competitions to the selected area
 //
 
-function App() {
+function App({ routes }) {
   const [competitions, setCompetitions] = useState([{}]);
   const [loading, setLoading] = useState(false);
 
@@ -46,8 +47,7 @@ function App() {
   // Render the page
   return (
     <div className="App">
-
-        <Header></Header>
+      <Header></Header>
 
       <div className="Main">
         <h4>

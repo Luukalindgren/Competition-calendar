@@ -42,6 +42,10 @@
   background-color: #CCCCCC;
 }
 
+.Main-item {
+  padding: 2rem;
+}
+
 .Footer {
   padding: 2rem;
   background-color: #666666;

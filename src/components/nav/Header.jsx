@@ -6,38 +6,10 @@ import {
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 import LLLogo from "/LL.png";
 
-const items = [
-  {
-    label: "Home",
-    key: "home",
-    icon: <HomeOutlined />,
-  },
-  {
-    label: "Favourites",
-    key: "favourites",
-    icon: <StarOutlined />,
-  },
-  {
-    label: "Rules",
-    key: "rules",
-    icon: <SettingOutlined />,
-  },
-  {
-    label: (
-      <a
-        href="https://github.com/Luukalindgren"
-        target="_blank"
-        rel=" noopener noreferrer"
-      >
-        GitHub - Link
-      </a>
-    ),
-    key: "github",
-    icon: <GithubOutlined />,
-  },
-];
+// THIS FILE GIVES NON-FATAL ERROR: "Warning: [antd: Menu] `children` will be removed in next major version. Please use `items` instead."
 
 const Header = () => {
   const [current, setCurrent] = useState("home");
@@ -48,13 +20,27 @@ const Header = () => {
     <div className="Header">
       <img src={LLLogo} className="logo" alt="logo" />
       <h1>Kisakalenteri</h1>
-      <Menu
-        onClick={onClick}
-        selectedKeys={[current]}
-        mode="horizontal"
-        colorPrimaryBorder="#000000"
-        items={items}
-      />
+      <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal">
+        <Menu.Item key="home" icon={<HomeOutlined />}>
+          <Link to="/">Home</Link>
+        </Menu.Item>
+        <Menu.Item key="favourites" icon={<StarOutlined />}>
+          <Link to="/favourites">Favourites</Link>
+        </Menu.Item>
+        <Menu.Item key="rules" icon={<SettingOutlined />}>
+          <Link to="/rules">Rules</Link>
+        </Menu.Item>
+        <Menu.Item key="github" icon={<GithubOutlined />}>
+          <a
+            href="https://github.com/Luukalindgren"
+            target="_blank"
+            rel=" noopener noreferrer"
+          >
+            GitHub - Link
+          </a>
+        </Menu.Item>
+      </Menu>
+      <Outlet />
     </div>
   );
 };

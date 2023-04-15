@@ -2,8 +2,10 @@ import React from "react";
 
 const Favourites = () => {
   return (
-    <div>
-      <h1>Favourites</h1>
+    <div className="Main">
+        <div className="Main-item">
+            <h2>Favourites</h2>
+        </div>
     </div>
   );
 };
