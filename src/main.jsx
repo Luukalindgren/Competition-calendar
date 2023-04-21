@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import Favourites from "./Pages/Favourites";
 import Rules from "./Pages/Rules";
+import Home from "./Pages/Home";
 import "./index.css";
 
 // FIX BUG WHEN NAVIGATIN TO OTHER PAGES THE MAIN APP PAGE IS RENDERED TOO
@@ -18,6 +19,7 @@ import "./index.css";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
+      <Route index element={<Home />} />
       <Route path="favourites" element={<Favourites />} />
       <Route path="rules" element={<Rules />} />
     </Route>
