@@ -13,6 +13,8 @@ import "./App.css";
 // DONE Publish backend to Heroku or AWS or something
 // - FIX render.com that backend runs scraper
 // - Add a area selector that shows the narrows down the competitions to the selected area
+// FOR PASSING THE COURSE:
+// - Add function to add competition to favourites, display these in favourites page
 // - Fix CSS, after adding navigation, styling is broken, compare to published version.
 
 function App() {
