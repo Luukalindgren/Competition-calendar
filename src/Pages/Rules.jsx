@@ -1,4 +1,6 @@
 import React from "react";
+import Footer from "../components/nav/Footer.jsx";
+import "../App.css";
 
 const Rules = () => {
   return (
@@ -43,6 +45,7 @@ const Rules = () => {
           Frisbeegolfin virallinen sääntökirja ja kilpailuopas
         </a>
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Competition from "../components/Competition";
 import * as ReactBootStarp from "react-bootstrap";
+import Footer from "../components/nav/Footer.jsx";
+import "../App.css";
 
 const Home = () => {
 
@@ -33,11 +35,13 @@ const Home = () => {
 
   return (
     <div className="Main">
-      <h4>
-        {loading
-          ? "Ensimmäinen lataus voi kestää, koska render.com säästää resursseja laittamalla bäkkärin unitilaan..."
-          : "Kisoja tänään: " + competitions.length}{" "}
-      </h4>
+      <div className="Main-item">
+        <h2>
+          {loading
+            ? "Ensimmäinen lataus voi kestää, koska render.com säästää resursseja laittamalla bäkkärin unitilaan..."
+            : "Kisoja tänään: " + competitions.length}{" "}
+        </h2>
+      </div>
       <div className="Main-context">
         {loading ? (
           <ReactBootStarp.Spinner animation="border" />
@@ -56,6 +60,7 @@ const Home = () => {
           </ul>
         )}
       </div>
+      <Footer/>
     </div>
   );
 };

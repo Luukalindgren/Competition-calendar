@@ -6,14 +6,13 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import App from "./App";
 import Favourites from "./Pages/Favourites";
 import Rules from "./Pages/Rules";
 import Home from "./Pages/Home";
 import "./index.css";
 
-// FIX BUG WHEN NAVIGATIN TO OTHER PAGES THE MAIN APP PAGE IS RENDERED TOO
 
 // React Router allows to navigate between pages
 const router = createBrowserRouter(

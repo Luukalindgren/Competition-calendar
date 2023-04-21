@@ -8,7 +8,7 @@
   background-image: url("/Frisbeegolfkentät.jpg");
   background-size: cover;
   font-size: 1.5em;
-  padding-bottom: 2rem;
+  max-height: 700px;
 }
 .ant-menu {
   justify-content: center;
@@ -47,6 +47,7 @@
 }
 
 .Footer {
+  margin:  1rem -2rem -2rem -2rem;
   padding: 2rem;
   background-color: #666666;
 }

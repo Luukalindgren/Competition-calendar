@@ -22,13 +22,13 @@ const Header = () => {
       <h1>Kisakalenteri</h1>
       <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal">
         <Menu.Item key="home" icon={<HomeOutlined />}>
-          <Link to="/">Home</Link>
+          <Link to="/">Koti</Link>
         </Menu.Item>
         <Menu.Item key="favourites" icon={<StarOutlined />}>
-          <Link to="/favourites">Favourites</Link>
+          <Link to="/favourites">Suosikit</Link>
         </Menu.Item>
         <Menu.Item key="rules" icon={<SettingOutlined />}>
-          <Link to="/rules">Rules</Link>
+          <Link to="/rules">Säännöt</Link>
         </Menu.Item>
         <Menu.Item key="github" icon={<GithubOutlined />}>
           <a
