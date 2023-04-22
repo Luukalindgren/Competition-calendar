@@ -12,14 +12,13 @@
 }
 .ant-menu {
   justify-content: center;
-  background-color: #CCCCCC;
+  background-color: #cccccc;
   margin-bottom: -2.5rem;
 }
 
 .ant-menu li {
   border: 0;
 }
-
 
 .Header h1 {
   font-size: 4rem;
@@ -34,12 +33,12 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #CCCCCC);
+  filter: drop-shadow(0 0 2em #cccccc);
 }
 
 .Main {
   padding: 2rem;
-  background-color: #CCCCCC;
+  background-color: #cccccc;
 }
 
 .Main-item {
@@ -47,7 +46,7 @@
 }
 
 .Footer {
-  margin:  1rem -2rem -2rem -2rem;
+  margin: 1rem -2rem -2rem -2rem;
   padding: 2rem;
   background-color: #666666;
 }
@@ -57,6 +56,30 @@
   background-color: #ffffffa4;
   border-radius: 0.5rem;
   margin: 0.5rem;
+}
+
+.Main-list-item h2 {
+  display: inline-block;
+}
+
+.Favourite-icon {
+  float: right;
+  font-size: 2rem;
+}
+
+.Favourite-icon:hover {
+  cursor: pointer;
+  color: #d8895b;
+}
+
+.Favourite-icon-clicked {
+  float: right;
+  font-size: 2rem;
+  color: #d8895b;
+}
+.Favourite-icon-clicked:hover {
+  cursor: pointer;
+  color: #666666;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -72,7 +95,7 @@
 }
 
 @media (max-width: 480px) {
-  .Main-list-item{
+  .Main-list-item {
     display: flex;
     justify-content: center;
     align-items: center;
