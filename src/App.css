@@ -72,15 +72,6 @@
   color: #d8895b;
 }
 
-.Favourite-icon-clicked {
-  float: right;
-  font-size: 2rem;
-  color: #d8895b;
-}
-.Favourite-icon-clicked:hover {
-  cursor: pointer;
-  color: #666666;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {

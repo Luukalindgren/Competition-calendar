@@ -1,10 +1,16 @@
 import React from "react";
-import { StarOutlined, StarFilled } from "@ant-design/icons"
-import "../App.css"; 
+import { StarOutlined, StarFilled } from "@ant-design/icons";
+import "../App.css";
 
 // Add star icon to the competition for marking it to favourites
 
 export default function Competition(props) {
+  const [favourite, setFavourite] = React.useState(false);
+
+  const toggleFavourite = () => {
+    setFavourite(!favourite);
+  };
+
   const weatherForecast =
     "https://ilmatieteenlaitos.fi/saa/" +
     (props.area == null ? "" : props.area.split(", ")[1]);
@@ -12,7 +18,13 @@ export default function Competition(props) {
   return (
     <li className="Main-list-item">
       <h2>{props.name}</h2>
-      <div className="Favourite-icon"><StarOutlined></StarOutlined></div>
+      <div className="Favourite-icon">
+        {favourite ? (
+          <StarFilled onClick={toggleFavourite} style={{color: "#d8895b"}} />
+        ) : (
+          <StarOutlined onClick={toggleFavourite}  />
+        )}
+      </div>
       <p>{props.location}</p>
       <b>{props.time}</b>
       <p>{props.area}</p>
