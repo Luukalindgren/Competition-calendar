@@ -2,7 +2,10 @@ import React from "react";
 import { StarOutlined, StarFilled } from "@ant-design/icons";
 import "../App.css";
 
+// TODO
 // Add star icon to the competition for marking it to favourites
+// Make array for favourite competitions and add the competition to it when the star is clicked
+// Send the array to API and save it to the database
 
 export default function Competition(props) {
   const [favourite, setFavourite] = React.useState(false);
