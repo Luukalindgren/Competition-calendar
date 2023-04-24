@@ -5,8 +5,9 @@ import * as ReactBootStarp from "react-bootstrap";
 import "../App.css";
 
 // TODO
-// Fetch the favourite competitions from the API
-// Display the competitions in the same way as in the Competition.jsx
+// DONE Fetch the favourite competitions from the API
+// DONE Display the competitions in the same way as in the Competition.jsx
+// Fix favourite marking, it works from Postman, but not from the app
 
 const Favourites = (props) => {
   const [favourites, setFavourites] = useState([{}]);
