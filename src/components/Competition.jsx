@@ -11,7 +11,23 @@ export default function Competition(props) {
   const [favourite, setFavourite] = React.useState(false);
 
   const toggleFavourite = () => {
-    setFavourite(!favourite);
+    fetch(
+      `https://competition-calendar-server.onrender.com/competitions/${props.id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: { favourite: true },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setFavourite(data.favourite);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const weatherForecast =
@@ -22,10 +38,10 @@ export default function Competition(props) {
     <li className="Main-list-item">
       <h2>{props.name}</h2>
       <div className="Favourite-icon">
-        {favourite ? (
-          <StarFilled onClick={toggleFavourite} style={{color: "#d8895b"}} />
+        {props.favourite ? (
+          <StarFilled onClick={toggleFavourite} style={{ color: "#d8895b" }} />
         ) : (
-          <StarOutlined onClick={toggleFavourite}  />
+          <StarOutlined onClick={toggleFavourite} />
         )}
       </div>
       <p>{props.location}</p>

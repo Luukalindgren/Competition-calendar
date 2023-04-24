@@ -9,10 +9,10 @@ const Home = () => {
   const [competitions, setCompetitions] = useState([{}]);
   const [loading, setLoading] = useState(false);
 
-    // Do something when component mounts
-    useEffect(() => {
-      fetchCompetitions();
-    }, []);
+  // Do something when component mounts
+  useEffect(() => {
+    fetchCompetitions();
+  }, []);
 
   // Fetch competitions from API
   const fetchCompetitions = async () => {
@@ -54,6 +54,7 @@ const Home = () => {
                 location={competition.location}
                 time={competition.time}
                 area={competition.area}
+                favourite={competition.favourite}
               />
             ))}
           </ul>
