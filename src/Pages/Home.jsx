@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Competition from "../components/Competition";
 import * as ReactBootStarp from "react-bootstrap";
 import Footer from "../components/nav/Footer.jsx";
@@ -39,7 +38,7 @@ const Home = () => {
         <h2>
           {loading
             ? "Ensimmäinen lataus voi kestää, koska render.com säästää resursseja laittamalla bäkkärin unitilaan..."
-            : "Kisoja tänään: " + competitions.length}{" "}
+            : "Kisoja tänään: " + competitions.length}
         </h2>
       </div>
       <div className="Main-context">
