@@ -17,10 +17,10 @@ import "./index.css";
 // React Router allows to navigate between pages
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
+    <Route path="/Competition-calendar" element={<App />}>
       <Route index element={<Home />} />
-      <Route path="favourites" element={<Favourites />} />
-      <Route path="rules" element={<Rules />} />
+      <Route path="/Competition-calendar/favourites" element={<Favourites />} />
+      <Route path="/Competition-calendar/rules" element={<Rules />} />
     </Route>
   )
 );
