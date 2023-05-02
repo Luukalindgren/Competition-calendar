@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { StarOutlined, StarFilled } from "@ant-design/icons";
 import "../App.css";
 
@@ -10,7 +10,7 @@ import "../App.css";
 export default function Competition(props) {
   const [favourite, setFavourite] = useState(false);
 
-  const toggleFavourite = () => {
+  function toggleFavourite() {
     fetch(
       `https://competition-calendar-server.onrender.com/competitions/${props._id}`,
       {
@@ -29,18 +29,20 @@ export default function Competition(props) {
       .catch((error) => {
         console.log(error);
       });
-  };
+  }
 
   const weatherForecast =
-    "https://ilmatieteenlaitos.fi/saa/" +
-    (props.area == null ? "" : props.area.split(", ")[1]);
-  const competitionSite = "https://discgolfmetrix.com/" + props.id;
+  `https://ilmatieteenlaitos.fi/saa/${
+    (props.area == null ? "" : props.area.split(", ")[1])}`;
+
+  const competitionSite = `https://discgolfmetrix.com/${props.id}`;
+
   return (
     <li className="Main-list-item">
       <h2>{props.name}</h2>
       <div className="Favourite-icon">
         {props.favourite ? (
-          <StarFilled onClick={toggleFavourite} style={{ color: "#d8895b" }} />
+          <StarFilled onClick={toggleFavourite} className="Favourited" />
         ) : (
           <StarOutlined onClick={toggleFavourite} />
         )}
@@ -49,8 +51,12 @@ export default function Competition(props) {
       <b>{props.time}</b>
       <p>{props.area}</p>
       <a href={weatherForecast}>Weather forecast</a>
-      <a href="">Course map</a>
-      <a href="">Driving instructions</a>
+      <a href="" style={{ pointerEvents: "none" }}>
+        Course map
+      </a>
+      <a href="" style={{ pointerEvents: "none" }}>
+        Driving instructions
+      </a>
       <a href={competitionSite}>Competition site</a>
     </li>
   );

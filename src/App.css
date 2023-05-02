@@ -72,6 +72,13 @@
   color: #d8895b;
 }
 
+.Favourited {
+  color: #d8895b;
+}
+
+.Favourited:hover {
+  color: #666666;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {

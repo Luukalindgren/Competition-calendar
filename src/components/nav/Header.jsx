@@ -13,9 +13,11 @@ import LLLogo from "/LL.png";
 
 const Header = () => {
   const [current, setCurrent] = useState("home");
-  const onClick = (e) => {
+
+  function onClick(e) {
     setCurrent(e.key);
-  };
+  }
+
   return (
     <div className="Header">
       <img src={LLLogo} className="logo" alt="logo" />

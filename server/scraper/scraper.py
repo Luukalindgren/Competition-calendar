@@ -43,9 +43,8 @@ for result in competitions:
     newCompetition["time"] = competitionTime.text.strip()
     newCompetition["location"] = competitionLocation.text.strip()
     newCompetition["area"] = competitionArea.text.strip()
-    if coll.find_one({"id": competitionID}) == None:
+    if coll.find_one({"id": competitionID}) is None:
         competitionsJson["competitions"].append(newCompetition)
-    
 
 # Insert all competitions to the database
 result = coll.insert_many(competitionsJson["competitions"])

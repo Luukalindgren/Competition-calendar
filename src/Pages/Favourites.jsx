@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Competition from "../components/Competition";
 import Footer from "../components/nav/Footer.jsx";
-import * as ReactBootStarp from "react-bootstrap";
+import { Spinner }  from "react-bootstrap";
 import "../App.css";
 
 // TODO
 // DONE Fetch the favourite competitions from the API
 // DONE Display the competitions in the same way as in the Competition.jsx
-// Fix favourite marking, it works from Postman, but not from the app
+// DONE favourite marking, it works from Postman, but not from the app
+// Make favourite marking render correctly right after click
 
-const Favourites = (props) => {
+const Favourites = () => {
   const [favourites, setFavourites] = useState([{}]);
   const [loading, setLoading] = useState(false);
 
@@ -43,7 +44,7 @@ const Favourites = (props) => {
       </div>
       <div className="Main-context">
       {loading ? (
-          <ReactBootStarp.Spinner animation="border" />
+          <Spinner animation="border" />
         ) : (
         <ul className="Main-list">
           {favourites.map((favourite) => (

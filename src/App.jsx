@@ -1,5 +1,4 @@
 import Header from "./components/nav/Header";
-import Footer from "./components/nav/Footer";
 
 import "./App.css";
 
@@ -14,12 +13,10 @@ import "./App.css";
 // - FIX render.com that backend runs scraper
 // - Add a area selector that shows the narrows down the competitions to the selected area
 // FOR PASSING THE COURSE:
-// - Add function to add competition to favourites, display these in favourites page
+// DONE Add function to add competition to favourites, display these in favourites page
 // - Fix CSS, after adding navigation, styling is broken, compare to published version.
 
 function App() {
-
-
   // Render the page
   return (
     <div className="App">
