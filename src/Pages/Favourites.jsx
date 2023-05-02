@@ -28,8 +28,8 @@ const Favourites = () => {
       );
       const data = await response.json();
       //console.log(data);
-      const favourites = data.filter((competition) => competition.favourite);
-      setFavourites(favourites);
+      const newFavourites = data.filter((competition) => competition.favourite);
+      setFavourites(newFavourites);
       setLoading(false); // For loading spinner/screen/thing
     } catch (error) {
       setLoading(false); // For loading spinner/screen/thing
