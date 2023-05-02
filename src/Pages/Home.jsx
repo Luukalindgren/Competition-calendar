@@ -50,6 +50,7 @@ const Home = () => {
               <Competition
                 key={competition.id}
                 id={competition.id}
+                _id={competition._id}
                 name={competition.name}
                 location={competition.location}
                 time={competition.time}

@@ -50,6 +50,7 @@ const Favourites = (props) => {
             <Competition
               key={favourite.id}
               id={favourite.id}
+              _id={favourite._id}
               name={favourite.name}
               location={favourite.location}
               time={favourite.time}

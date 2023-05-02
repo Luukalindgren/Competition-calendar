@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StarOutlined, StarFilled } from "@ant-design/icons";
 import "../App.css";
 
@@ -8,22 +8,23 @@ import "../App.css";
 // Send the array to API and save it to the database
 
 export default function Competition(props) {
-  const [favourite, setFavourite] = React.useState(false);
+  const [favourite, setFavourite] = useState(false);
 
   const toggleFavourite = () => {
     fetch(
-      `https://competition-calendar-server.onrender.com/competitions/${props.id}`,
+      `https://competition-calendar-server.onrender.com/competitions/${props._id}`,
       {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: { favourite: true },
+        body: JSON.stringify({ favourite: !props.favourite }),
       }
     )
       .then((response) => response.json())
       .then((data) => {
         setFavourite(data.favourite);
+        console.log(data);
       })
       .catch((error) => {
         console.log(error);
