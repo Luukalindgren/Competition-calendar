@@ -21,14 +21,26 @@ export default function Competition(props) {
         body: JSON.stringify({ favourite: !props.favourite }),
       }
     )
-      .then((response) => response.json())
-      .then((data) => {
-        setFavourite(data.favourite);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    .then((response) => response.json())
+    .then((data) => {
+      setFavourite(data.favourite);
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+  // Weird function to check if the competition is favourite, otherwise page wont render clicked star correctly
+  // FIX THIS, now works only when marking as favourite, not when removing favourite
+  function isFavourite() {
+    if (props.favourite) {
+      return true;
+    } if (favourite) {
+      return true; 
+    } else {
+      return false;
+    }
   }
 
   const weatherForecast =
@@ -41,7 +53,7 @@ export default function Competition(props) {
     <li className="Main-list-item">
       <h2>{props.name}</h2>
       <div className="Favourite-icon">
-        {props.favourite ? (
+        {isFavourite() ? (
           <StarFilled onClick={toggleFavourite} className="Favourited" />
         ) : (
           <StarOutlined onClick={toggleFavourite} />
