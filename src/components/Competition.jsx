@@ -8,7 +8,7 @@ import "../App.css";
 // Send the array to API and save it to the database
 
 export default function Competition(props) {
-  const [favourite, setFavourite] = useState(false);
+  const [favourite, setFavourite] = useState(props.favourite);
 
   function toggleFavourite() {
     fetch(
@@ -21,31 +21,30 @@ export default function Competition(props) {
         body: JSON.stringify({ favourite: !props.favourite }),
       }
     )
-    .then((response) => response.json())
-    .then((data) => {
-      setFavourite(data.favourite);
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.favourite);
+        setFavourite(data.favourite);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   // Weird function to check if the competition is favourite, otherwise page wont render clicked star correctly
   // FIX THIS, now works only when marking as favourite, not when removing favourite
+  // PROBLEM IS ON THE SERVER SIDE, NOT HERE
   function isFavourite() {
-    if (props.favourite) {
+    if (favourite) {
       return true;
-    } if (favourite) {
-      return true; 
     } else {
       return false;
     }
   }
 
-  const weatherForecast =
-  `https://ilmatieteenlaitos.fi/saa/${
-    (props.area == null ? "" : props.area.split(", ")[1])}`;
+  const weatherForecast = `https://ilmatieteenlaitos.fi/saa/${
+    props.area == null ? "" : props.area.split(", ")[1]
+  }`;
 
   const competitionSite = `https://discgolfmetrix.com/${props.id}`;
 
