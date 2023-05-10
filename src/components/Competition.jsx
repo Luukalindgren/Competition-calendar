@@ -23,7 +23,7 @@ export default function Competition(props) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.favourite);
+        //console.log(data.favourite);
         setFavourite(data.favourite);
       })
       .catch((error) => {
